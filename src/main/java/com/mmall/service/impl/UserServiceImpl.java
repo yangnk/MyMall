@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
  * @author yangningkai
  * @create 2019-01-03 上午10:53
  **/
-@Service("iUserService")
+@Service("UserService")
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
@@ -78,5 +78,13 @@ public class UserServiceImpl implements UserService {
             return ServerResponse.createByErrorMessage("参数错误");
         }
         return ServerResponse.createBySuccessMessage("校验成功");
+    }
+
+    @Override
+    public ServerResponse checkAdminRole(User user){
+        if(user != null && user.getRole().intValue() == Const.Role.ROLE_ADMIN){
+            return ServerResponse.createBySuccess();
+        }
+        return ServerResponse.createByError();
     }
 }

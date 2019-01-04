@@ -32,4 +32,11 @@ public interface UserService {
      * @return
      */
     ServerResponse checkValid(String str, String type);
+
+    /**
+     * 判定是否是管理员
+     * @param user
+     * @return
+     */
+    ServerResponse checkAdminRole(User user);
 }

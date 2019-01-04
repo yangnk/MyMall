@@ -116,4 +116,16 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <insert id="newInsert" parameterType="com.mmall.pojo.Category">
+    INSERT INTO mmall_category(id, parent_id, name, status, sort_order, create_time, update_time)
+    VALUE (#{id,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},#{status,jdbcType=BIT}, #{sortOrder,jdbcType=INTEGER}, now(),now())
+  </insert>
+
+  <select id="selectCategoryChildrenByParentId" resultMap="BaseResultMap" parameterType="int">
+    select
+    <include refid="Base_Column_List"/>
+    from mmall_category
+    where parent_id = #{parentId}
+  </select>
 </mapper>
