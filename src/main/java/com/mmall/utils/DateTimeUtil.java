@@ -13,7 +13,8 @@ import java.util.Date;
  * @create 2019-01-04 下午11:20
  **/
 public class DateTimeUtil {
-    private static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    public static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
     public static Date strToDate(String dateTimeStr, String formatStr){
         DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern(formatStr);
         DateTime dateTime = dateTimeFormatter.parseDateTime(dateTimeStr);
