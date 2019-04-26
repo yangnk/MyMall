@@ -42,5 +42,7 @@ buildNumber.properties
 hs_err_pid*
 
 src/main/.DS_Store
-src/main/tools/.DS_Store
+tools/.DS_Store
 
+/src/main/resources/mmall.properties
+/src/main/resources/datasource.properties
